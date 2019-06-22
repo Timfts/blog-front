@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import typography from './typography';
+import { color } from '../abstract/theme';
 
 
 const GlobalStyle = createGlobalStyle`
@@ -16,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         box-sizing: box-shadow;
+        background-color:${color.creamTwo};
     }
 
     ${typography}
