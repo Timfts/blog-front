@@ -1,5 +1,6 @@
 import * as fonts from './fonts';
 import { css } from 'styled-components';
+import { color } from '../abstract/theme';
 
 const typography = css`
     @font-face {
@@ -60,6 +61,18 @@ const typography = css`
     body {
         font-size: 1.6rem;
         font-family:Bitter;
+        color:${color.greyFive};
+    }
+
+    a {
+        color:${color.red};
+        text-decoration:none;
+        /* if necessary put in the theme */
+        transition:all .2s;
+
+        &:hover {
+            color: ${color.redDark}
+        }
     }
 
     h1,
@@ -69,6 +82,11 @@ const typography = css`
     h5 {
         font-family:Kanit;
         font-weight:600;
+        color:${color.greyThree};
+    }
+
+    ul,ol {
+        list-style:none;
     }
 `;
 

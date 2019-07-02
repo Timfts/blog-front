@@ -3,12 +3,16 @@ import typography from './typography';
 import { color } from '../abstract/theme';
 
 
+
+
 const GlobalStyle = createGlobalStyle`
     
     *,
     *::before,
     *::after {
         box-sizing:inherit;
+        margin:0;
+        padding:0;
     }
 
     html {
@@ -16,8 +20,9 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        box-sizing: box-shadow;
-        background-color:${color.creamTwo};
+        box-sizing: border-box;
+        background-color:${color.creamThree};
+        padding:25vh 0 0 0;
     }
 
     ${typography}
@@ -25,5 +30,3 @@ const GlobalStyle = createGlobalStyle`
 
 
 export default GlobalStyle;
-
-
