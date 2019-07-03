@@ -1,20 +1,26 @@
 import  React, { Component } from 'react';
 import  styled  from 'styled-components';
-import { color, box, mixins } from '@styles';
+import { color, box, mixins, media } from '@styles';
 import { PanelBtnWhite } from '../shared/button';
 
 
 const HeaderContainer = styled.nav`
     background-color:${color.greyOne};
     width:100%;
-    height:25vh;
+    height:20vh;
     box-shadow:${box.boxShadowOne};
-    padding:0 5%;
+    padding:0 2%;
     position:fixed;
     top:0;
     left:0;
     z-index:10;
     ${mixins.flexBetween}
+    ${media.desk`
+        ${mixins.flexColumn}
+        justify-content:center;
+        height:auto;
+        padding:3rem  0;
+    `}
 `;
 
 const FakeTitle = styled.h1`
@@ -24,21 +30,70 @@ const FakeTitle = styled.h1`
     letter-spacing:1.5px;
 `
 
-const BrandContainer = styled.div``;
+const BrandContainer = styled.div`
+    ${media.phone`
+        margin-bottom:2rem;
+    `}
+`;
 
 const NavContainer = styled.div`
+    ${media.tabPort`
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+    `}
+    ${media.phone`
+        ${mixins.flexColumn}
+        ${props => (props.isMobileOpen ? 
+            `
+                display:flex;
 
+            ` :
+            `
+                display:none;
+
+            `
+        )}
+    `}
+`;
+
+const CollapseNav = styled.button`
+    background-color:red;
+    display:none;
+    ${media.phone`
+        display:inline-block;
+    `}
 `;
 
 
 export default class Header extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            isMobileOpen: false
+        }
+
+        this.collapseMobileMenu = this.collapseMobileMenu.bind(this);
+    }
+
+    collapseMobileMenu(teste) {
+        console.log(this.state.isMobileOpen);
+        this.setState({isMobileOpen: !this.state.isMobileOpen});
+    }
     render(){
+        const mobileMenu = this.state.isMobileOpen;
         return(
             <HeaderContainer>
                 <BrandContainer>
                     <FakeTitle>Meu Blog</FakeTitle>
-                    <PanelBtnWhite buttonLabel="teste" isActive={false} />
                 </BrandContainer>
+                <NavContainer isMobileOpen={this.state.isMobileOpen}>
+                    <PanelBtnWhite buttonLabel="home" isActive={true} />
+                    <PanelBtnWhite buttonLabel="timeline" isActive={false} />
+                    <PanelBtnWhite buttonLabel="posts" isActive={false} />
+                    <PanelBtnWhite buttonLabel="about" isActive={false} />
+                </NavContainer>
+                <CollapseNav onClick={this.collapseMobileMenu}>collapsar</CollapseNav>
             </HeaderContainer>            
         );
     }

@@ -2,9 +2,9 @@ import { css } from 'styled-components'
 
 const screenSizes = {
     giant: 1440,
-    bigDesk: 1200,
-    desk: 1000,
-    tab: 768,
+    desk: 1200,
+    tabLand: 1000,
+    tabPort: 768,
     phone: 600
 }
 
@@ -17,11 +17,11 @@ const screenSizes = {
     
 */
 
-export const media = Object.keys(breakpoints).reduce(acc, bkpName => {
+export const media = Object.keys(screenSizes).reduce((acc, bkpName) => {
     // convert the current breakpoint value from px to em
-    const emSize = screenSizes[bpkName] / 16;
+    const emSize = screenSizes[bkpName] / 16;
 
-    acc[label] = (...args) => css`
+    acc[bkpName] = (...args) => css`
         @media (max-width: ${emSize}em){
             ${css(...args)}
         }

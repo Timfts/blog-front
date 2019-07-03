@@ -5,6 +5,7 @@ import { StaticQuery, graphql } from "gatsby"
 import { GlobalStyle } from '@styles';
 
 import Header from "./layout/header";
+import SocialBar from "./layout/social";
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -21,6 +22,7 @@ const Layout = ({ children }) => (
       <>
         <GlobalStyle />
         <Header siteTitle={data.site.siteMetadata.title} />
+        <SocialBar />
         <div
           style={{
             margin: `0 auto`,
