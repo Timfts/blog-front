@@ -8,7 +8,7 @@ const SocialContainer = styled.div`
     top:0;
     left:0;
     height:100vh;
-    width:6rem;
+    width:5.5rem;
     padding-top:20vh;
     z-index:5;
 `;

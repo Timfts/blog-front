@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
     body {
         box-sizing: border-box;
         background-color:${color.creamThree};
-        padding:20vh 0 0 6rem;
+        overflow:hidden;
     }
 
     ${typography}

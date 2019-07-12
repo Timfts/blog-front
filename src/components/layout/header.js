@@ -67,21 +67,20 @@ const CollapseNav = styled.button`
 
 
 export default class Header extends Component {
+
     constructor(props){
         super(props);
         this.state = {
             isMobileOpen: false
         }
-
         this.collapseMobileMenu = this.collapseMobileMenu.bind(this);
     }
 
     collapseMobileMenu(teste) {
-        console.log(this.state.isMobileOpen);
         this.setState({isMobileOpen: !this.state.isMobileOpen});
     }
+
     render(){
-        const mobileMenu = this.state.isMobileOpen;
         return(
             <HeaderContainer>
                 <BrandContainer>
