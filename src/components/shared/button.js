@@ -24,7 +24,14 @@ const PbwContainer = styled.a`
     )}
 
     &:hover {
-        color: ${props => (props.isActive ? color.greyOne : color.greyTwo)}
+        color: ${props => (props.isActive ? color.greyOne : color.greyTwo)};
+        transform: translateY(2px);
+        box-shadow: 4px 3px 5px 0px rgba(0,0,0,0.60);
+    }
+
+    &:active {
+        transform:translateY(5px);
+        box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.80);
     }
 `; 
 export const PanelBtnWhite = ({ buttonLabel, isActive }) => (

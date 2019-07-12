@@ -35,7 +35,7 @@ const Layout = ({ children }) => (
         <Header siteTitle={data.site.siteMetadata.title} />
         <SocialBar />
         <ViewContainer>
-          <div style={{backgroundColor:'red', height:'60vh'}}>teste</div>
+          <div style={{ height:'60vh'}}>teste</div>
           <main>{children}</main>
           <footer>
             © {new Date().getFullYear()}, Built with

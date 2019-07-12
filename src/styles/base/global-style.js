@@ -13,6 +13,8 @@ const GlobalStyle = createGlobalStyle`
         box-sizing:inherit;
         margin:0;
         padding:0;
+        scrollbar-color: ${color.redDark} transparent;
+        scrollbar-width: thin;
     }
 
     html {
@@ -24,6 +26,19 @@ const GlobalStyle = createGlobalStyle`
         background-color:${color.creamThree};
         overflow:hidden;
     }
+
+    ::-webkit-scrollbar {
+        box-sizing: border-box;
+        width:10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color:${color.redDark};
+        border:2px solid transparent;
+        border-radius: 200px;
+        background-clip: padding-box;
+}
+
 
     ${typography}
 `;
