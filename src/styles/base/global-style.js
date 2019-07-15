@@ -37,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
         border:2px solid transparent;
         border-radius: 200px;
         background-clip: padding-box;
-}
+    }
 
 
     ${typography}
