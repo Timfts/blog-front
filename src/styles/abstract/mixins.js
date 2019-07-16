@@ -13,6 +13,11 @@ const mixins = {
         flex-direction:column;
         align-items:center;
         justify-content:flex-start;
+    `,
+    flexCenter: css`
+        display:flex;
+        justify-content:center;
+        align-items:center;
     `
 }
 

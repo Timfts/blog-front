@@ -1,11 +1,11 @@
 import { css } from 'styled-components'
 
 const screenSizes = {
-    giant: 1440,
-    desk: 1200,
-    tabLand: 1000,
-    tabPort: 768,
-    phone: 600
+    giant: 1440, //90em
+    desk: 1200, //75em
+    tabLand: 1000, //62.5em
+    tabPort: 768, //48em
+    phone: 600 //37.5em
 }
 
 

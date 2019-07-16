@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Layout from "../components/layout";
 import Image from "../components/image";
 import SEO from "../components/seo";
-import Header from "../components/header";
+import HomeHeader from "../components/home-header";
 
 const Container = styled.div`
   height:100vh;
@@ -15,7 +15,7 @@ const Container = styled.div`
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <Header />
+    <HomeHeader />
     <Container>
     <h1>Hi people</h1>
     <p>test to your new Gatsby site.</p>

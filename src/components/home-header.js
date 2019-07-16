@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { StaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
+import { color, mixins, media } from "@styles";
 
 const HeaderContainer = styled.header`
   height:40rem;
@@ -9,6 +10,30 @@ const HeaderContainer = styled.header`
   background-color:red;
   overflow: hidden;
   position:relative;
+
+  ${media.phone`
+    height:30rem;
+  `}
+`;
+
+const SalutPane = styled.div`
+  position: absolute;
+  padding:2.5rem 1rem;
+  top: 8rem;
+  left:50%;
+  transform:translateX(-50%);
+  background-color:${color.greyOne};
+  border:.8rem solid ${color.creamOne};
+  ${mixins.flexCenter}
+  color:${color.creamOne};
+  text-align:center;
+  font-size:4rem;
+  width:75%;
+  
+  ${media.tabPort`
+      width:90%;
+      font-size:2.5rem;
+  `}
 `;
 
 const HeaderImageOverlay = styled.div`
@@ -18,11 +43,10 @@ const HeaderImageOverlay = styled.div`
   width:100%;
   height:100%;
   background-color:rgba(0,0,0,.5);
-  z-index:5;
 `;
 
 
-const Header = ({ data }) => (
+const HomeHeader = ({ data }) => (
   <HeaderContainer>
     <StaticQuery
       query={graphql`
@@ -39,8 +63,11 @@ const Header = ({ data }) => (
       render={data => {
         return (
           <>
-            <HeaderImageOverlay />
             <Img fluid={data.headerImage.childImageSharp.fluid} style={{ width: '100%', height: '100%' }} />
+            <HeaderImageOverlay />
+            <SalutPane>
+              Random words to represent tech and art
+            </SalutPane>
           </>
         )
       }}
@@ -48,6 +75,6 @@ const Header = ({ data }) => (
   </HeaderContainer>
 )
 
-export default Header;
+export default HomeHeader;
 
 

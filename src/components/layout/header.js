@@ -28,11 +28,12 @@ const FakeTitle = styled.h1`
     text-transform:uppercase;
     font-size:3rem;
     letter-spacing:1.5px;
+
 `
 
 const BrandContainer = styled.div`
-    ${media.phone`
-        margin-bottom:2rem;
+    ${media.desk`
+        margin-bottom:3rem;
     `}
 `;
 
@@ -41,16 +42,19 @@ const NavContainer = styled.div`
         display:flex;
         flex-wrap:wrap;
         justify-content:center;
+        overflow: hidden;
+        transition:height .5s ease-in;
+        
     `}
     ${media.phone`
         ${mixins.flexColumn}
         ${props => (props.isMobileOpen ? 
             `
-                display:flex;
+                height:35rem;
 
             ` :
             `
-                display:none;
+                height:0;
 
             `
         )}
@@ -77,6 +81,9 @@ export default class Header extends Component {
     }
 
     collapseMobileMenu(teste) {
+        //turn will change on
+        // trigger animation
+        // turn will change
         this.setState({isMobileOpen: !this.state.isMobileOpen});
     }
 

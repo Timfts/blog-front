@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import styled from 'styled-components'
 
-import { GlobalStyle } from '@styles';
+import { GlobalStyle, media } from '@styles';
 
 import Header from "./layout/header";
 import SocialBar from "./layout/social";
@@ -14,6 +14,13 @@ const ViewContainer = styled.div`
   overflow-y:scroll;
   overflow-x:hidden;
   margin:20vh 0 0 5.5rem;
+  ${media.tabPort`
+    margin:30vh 0;
+  `}
+  ${media.phone`
+    margin:20vh 0;
+  `}
+
 `;
 
 
