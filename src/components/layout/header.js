@@ -1,5 +1,5 @@
-import  React, { Component } from 'react';
-import  styled  from 'styled-components';
+import React, { Component } from 'react';
+import styled from 'styled-components';
 import { color, box, mixins, media } from '@styles';
 import { PanelBtnWhite } from '../shared/button';
 
@@ -25,9 +25,11 @@ const HeaderContainer = styled.nav`
 
 const FakeTitle = styled.h1`
     color:${color.creamThree};
-    text-transform:uppercase;
+    /*text-transform:uppercase;*/
     font-size:3rem;
     letter-spacing:1.5px;
+    padding:5px;
+    border-bottom:4px solid ${color.redDark};
 
 `
 
@@ -48,7 +50,7 @@ const NavContainer = styled.div`
     `}
     ${media.phone`
         ${mixins.flexColumn}
-        ${props => (props.isMobileOpen ? 
+        ${props => (props.isMobileOpen ?
             `
                 height:35rem;
 
@@ -72,7 +74,7 @@ const CollapseNav = styled.button`
 
 export default class Header extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             isMobileOpen: false
@@ -84,14 +86,14 @@ export default class Header extends Component {
         //turn will change on
         // trigger animation
         // turn will change
-        this.setState({isMobileOpen: !this.state.isMobileOpen});
+        this.setState({ isMobileOpen: !this.state.isMobileOpen });
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <HeaderContainer>
                 <BrandContainer>
-                    <FakeTitle>Meu Blog</FakeTitle>
+                    <FakeTitle>Archypost</FakeTitle>
                 </BrandContainer>
                 <NavContainer isMobileOpen={this.state.isMobileOpen}>
                     <PanelBtnWhite buttonLabel="home" isActive={true} />
@@ -100,7 +102,7 @@ export default class Header extends Component {
                     <PanelBtnWhite buttonLabel="about" isActive={false} />
                 </NavContainer>
                 <CollapseNav onClick={this.collapseMobileMenu}>collapsar</CollapseNav>
-            </HeaderContainer>            
+            </HeaderContainer>
         );
     }
 }

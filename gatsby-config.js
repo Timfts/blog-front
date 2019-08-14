@@ -1,3 +1,24 @@
+let ghostConfig
+
+try {
+  ghostConfig = require(`./.ghost`)
+} catch (e) {
+  ghostConfig = {
+    production: {
+      apiUrl: process.env.GHOST_API_URL,
+      contentApiKey: process.env.GHOST_CONTENT_API_KEY,
+    },
+  }
+} finally {
+  const { apiUrl, contentApiKey } = process.env.NODE_ENV === `development` ? ghostConfig.development : ghostConfig.production
+
+  if (!apiUrl || !contentApiKey || contentApiKey.match(/<key>/)) {
+    throw new Error(`GHOST_API_URL and GHOST_CONTENT_API_KEY are required to build. Check the README.`) // eslint-disable-line
+  }
+}
+
+
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -14,6 +35,13 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-source-ghost`,
+      options:
+        process.env.NODE_ENV === `development`
+          ? ghostConfig.development
+          : ghostConfig.production,
+    },
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
     {

@@ -23,7 +23,7 @@ const SalutPane = styled.div`
   left:50%;
   transform:translateX(-50%);
   background-color:${color.greyOne};
-  border:.8rem solid ${color.creamOne};
+  border:.7rem solid ${color.creamOne};
   ${mixins.flexCenter}
   color:${color.creamOne};
   text-align:center;
@@ -66,7 +66,7 @@ const HomeHeader = ({ data }) => (
             <Img fluid={data.headerImage.childImageSharp.fluid} style={{ width: '100%', height: '100%' }} />
             <HeaderImageOverlay />
             <SalutPane>
-              Random words to represent tech and art
+              Random words to represent something
             </SalutPane>
           </>
         )
