@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import ArticleCard from "../../shared/articleCard";
+import MainArticleCard from '../../shared/main-article-card';
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 
@@ -10,6 +11,7 @@ const HomePostsSection = styled.section`
   position: relative;
 `;
 
+
 const HomePostsBef = ({ posts }) => {
   const latestPost = posts[0];
   const allExceptFirst = [...posts].slice(1);
@@ -17,7 +19,7 @@ const HomePostsBef = ({ posts }) => {
   console.log(latestPost, allExceptFirst);
   return (
     <HomePostsSection>
-      <ArticleCard main post={latestPost} />
+      <MainArticleCard post={latestPost} />
     </HomePostsSection>
   );
 };
@@ -40,6 +42,7 @@ const HomePosts = props => (
               name
               profile_image
             }
+            published_at(fromNow: true)
           }
         }
       }

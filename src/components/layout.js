@@ -14,11 +14,14 @@ const ViewContainer = styled.div`
   overflow-y:scroll;
   overflow-x:hidden;
   margin:20vh 0 0 5.5rem;
+  ${media.desk`
+    margin:200px 0;
+  `}
   ${media.tabLand`
     margin:200px 0;
   `}
   ${media.tabPort`
-    margin:300px 0;
+    margin:300px 0 ;
   `}
   ${media.phone`
     margin:20vh 0;
