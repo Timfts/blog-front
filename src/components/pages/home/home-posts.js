@@ -1,14 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-import ArticleCard from "../../shared/articleCard";
+import ArticleCard from "../../shared/article-card";
 import MainArticleCard from '../../shared/main-article-card';
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
+import { media } from "@styles";
 
 const HomePostsSection = styled.section`
   margin-top: -10rem;
   padding: 0 5.5rem;
   position: relative;
+
+  ${media.phone`
+    margin-top:-5rem;
+    padding:0 2rem;
+  `}
 `;
 
 

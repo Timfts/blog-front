@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { color, box, mixins, media } from "@styles";
 import { PanelBtnWhite } from "../shared/button";
+import { debounce, getScreenBreakpoint } from "../../helpers";
 
 const HeaderContainer = styled.nav`
   background-color: ${color.greyOne};
   width: 100%;
-  height: 20vh;
+  transition:all .4s;
+  height: ${props => (props.scrolled ? "15vh" : "20vh")};
   box-shadow: ${box.boxShadowOne};
   padding: 0 2%;
   position: fixed;
@@ -20,6 +22,9 @@ const HeaderContainer = styled.nav`
         height:auto;
         padding:3rem  0;
     `}
+    ${media.phone`
+      padding:${props => (props.scrolled ? "1rem" : "3rem")};
+    `}
 `;
 
 const FakeTitle = styled.h1`
@@ -29,27 +34,31 @@ const FakeTitle = styled.h1`
   letter-spacing: 1.5px;
   padding: 5px;
   border-bottom: 4px solid ${color.redDark};
+
+  ${media.tabPort`
+    font-size:${props => (props.scrolled ? "2rem" : "3rem")};
+  `}
 `;
 
 const BrandContainer = styled.div`
+  position: relative;
+  transition: all 0.6s ease;
   ${media.desk`
         margin-bottom:3rem;
     `}
+  ${media.phone`
+    margin-bottom:2rem;
+    ${props => (props.scrolled ? "transform:translateX(-80%)" : "")}
+  `}
 `;
 
 const NavContainer = styled.div`
-    ${media.tabPort`
+  ${media.tabPort`
         display:flex;
         flex-wrap:wrap;
         justify-content:center;
         overflow: hidden;
         transition:height .5s ease-in;
-        
-    `}
-    ${media.tabPort`
-        width:70rem;
-    `}
-    ${media.phone`
         width:auto;
         ${mixins.flexColumn}
         ${props =>
@@ -62,13 +71,14 @@ const NavContainer = styled.div`
                 height:0;
 
             `}
+        
     `}
 `;
 
 const CollapseNav = styled.button`
   background-color: red;
   display: none;
-  ${media.phone`
+  ${media.tabPort`
         display:inline-block;
     `}
 `;
@@ -82,6 +92,8 @@ export default class Header extends Component {
     this.collapseMobileMenu = this.collapseMobileMenu.bind(this);
   }
 
+  componentDidMount() {}
+
   collapseMobileMenu(teste) {
     //turn will change on
     // trigger animation
@@ -91,9 +103,9 @@ export default class Header extends Component {
 
   render() {
     return (
-      <HeaderContainer>
-        <BrandContainer>
-          <FakeTitle>Archypost</FakeTitle>
+      <HeaderContainer scrolled={this.props.scrolled}>
+        <BrandContainer scrolled={this.props.scrolled}>
+          <FakeTitle scrolled={this.props.scrolled}>Archypost</FakeTitle>
         </BrandContainer>
         <NavContainer isMobileOpen={this.state.isMobileOpen}>
           <PanelBtnWhite buttonLabel="home" isActive={true} />

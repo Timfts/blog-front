@@ -13,7 +13,7 @@ const SocialContainer = styled.div`
     ${mixins.flexCenter}
     z-index:5;
 
-    ${media.phone`
+    ${media.tabPort`
         display:none;
     `}
 `;
