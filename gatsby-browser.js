@@ -5,3 +5,6 @@
  */
 
 // You can delete this file if you're not using it
+require('typeface-bitter');
+require('typeface-kanit');
+require('typeface-permanent-marker');

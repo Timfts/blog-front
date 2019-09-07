@@ -9,7 +9,7 @@ import { debounce } from "../helpers";
 
 
 const ViewContainer = styled.div`
-  height:80vh;
+  height:${ props => props.scrolled ? '85vh ' : '80vh'};
   overflow-y:scroll;
   overflow-x:hidden;
   transition:all .4s;
