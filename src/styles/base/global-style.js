@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import typography from './typography';
 import { color } from '../abstract/theme';
+import { media } from '../abstract/response';
 
 
 
@@ -19,6 +20,13 @@ const GlobalStyle = createGlobalStyle`
 
     html {
         font-size:62.25%;
+
+        ${media.tabLand`
+            font-size:56.25%;
+        `}
+        ${media.tabPort`
+            font-size:50%;
+        `}
     }
 
     body {

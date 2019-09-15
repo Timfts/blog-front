@@ -25,7 +25,6 @@ const LastPost = styled.a.attrs(props => ({
 `;
 
 const ImageContainer = styled.div`
-  background-color: blue;
   flex: 1;
   height: 30rem;
   display: flex;
@@ -68,6 +67,7 @@ const PostTitle = styled.h1`
 
 const PostInfo = styled.span`
   color: ${color.greySix};
+  display:block;
   ${media.tabPort`
     font-size:1.4rem;
   `}

@@ -22,34 +22,47 @@ const PostsCardGrid = styled.section`
   flex-wrap: wrap;
   justify-content: flex-start;
   margin-top: 5rem;
+
+  ${media.phone`
+    flex-direction:column;
+    flex-wrap:nowrap;
+    align-items:center;
+  `}
 `;
 
 const GridItemContainer = styled.div`
   flex: 0 0 calc(25% - 20px);
   margin: 10px;
+
+  ${media.desk`
+    flex:0 0 calc(33.33% - 20px);
+  `}
+  ${media.tabLand`
+    flex:0 0 calc(33.33% - 20px);
+  `}
+  ${media.tabPort`
+    flex:0 0 calc(50% - 20px);
+  `}
+  ${media.phone`
+    width:40rem;
+    height:45rem;
+  `}
 `;
 
-const HomePostsBef = ({ posts }) => {
-  const latestPost = posts[0];
-  const allExceptFirst = [...posts].slice(1);
+const HomePostsBef = ({ posts, firstPost}) => {
 
-  console.log(latestPost, allExceptFirst);
+  console.log( firstPost);
   return (
     <HomePostsSection>
-      <MainArticleCard post={latestPost} />
+      <MainArticleCard post={firstPost} />
       <PostsCardGrid>
-        <GridItemContainer>
-          <ArticleCard />
-        </GridItemContainer>
-        <GridItemContainer>
-          <ArticleCard />
-        </GridItemContainer>
-        <GridItemContainer>
-          <ArticleCard />
-        </GridItemContainer>
-        <GridItemContainer>
-          <ArticleCard />
-        </GridItemContainer>
+        {
+          posts.map(post => (
+            <GridItemContainer>
+              <ArticleCard post={post.node} />
+            </GridItemContainer>
+          ))
+        }
       </PostsCardGrid>
     </HomePostsSection>
   );
@@ -57,28 +70,44 @@ const HomePostsBef = ({ posts }) => {
 
 HomePostsBef.propTypes = {
   posts: PropTypes.array.isRequired,
+  firstPost: PropTypes.object.isRequired
 };
 
 const HomePosts = props => (
   <StaticQuery
     query={graphql`
       query PostQuery {
-        allGhostPost {
-          nodes {
-            title
-            excerpt
-            feature_image
-            id
-            authors {
-              name
-              profile_image
+        firstPost: allGhostPost(limit: 1) {
+          edges {
+            node {
+              title
+              excerpt
+              feature_image
+              authors {
+                name
+                profile_image
+              }
+              published_at(fromNow: true)
             }
-            published_at(fromNow: true)
+          }
+        }
+        cardPosts: allGhostPost(limit: 12, skip: 1) {
+          edges {
+            node {
+              title
+              excerpt
+              feature_image
+              authors {
+                name
+                profile_image
+              }
+              published_at(fromNow: true)
+            }
           }
         }
       }
     `}
-    render={data => <HomePostsBef posts={data.allGhostPost.nodes} />}
+    render={data => <HomePostsBef posts={data.cardPosts.edges} firstPost={data.firstPost.edges[0].node} />}
   />
 );
 
