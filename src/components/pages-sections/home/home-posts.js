@@ -100,6 +100,7 @@ const HomePosts = props => (
               excerpt
               html
               feature_image
+              slug
               authors {
                 name
                 profile_image

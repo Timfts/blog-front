@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { navigate } from 'gatsby'
 import ProTypes from "prop-types";
 import {
   CardContainer,
@@ -13,6 +14,7 @@ import {
 } from "./article-card.styled";
 import { getScreenBreakpoint } from "../../helpers";
 import { readingTime as readingTimeHelper } from '@tryghost/helpers'
+
 
 const ArticleCard = ({ post }) => {
   const screenType = getScreenBreakpoint();
@@ -30,6 +32,10 @@ const ArticleCard = ({ post }) => {
     }
   }
 
+  function openPost(){
+    navigate(`${post.slug}`);
+  }
+
   return (
     <CardContainer title={post.title}>
       <CardSide side="front" onClick={rotateCard} rotated={rotated}>
@@ -38,7 +44,7 @@ const ArticleCard = ({ post }) => {
         </CardImage>
         <PostTitle>{trimCardTitle(post.title)}</PostTitle>
       </CardSide>
-      <CardSide side="back" rotated={rotated}>
+      <CardSide side="back" rotated={rotated} onClick={openPost}>
         <PostInfo>
           <div>
             <h1>{trimCardTitle(post.title)}</h1>
