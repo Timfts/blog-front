@@ -5,8 +5,8 @@ import styled from "styled-components";
 import Layout from "../components/layout";
 import Image from "../components/image";
 import SEO from "../components/seo";
-import HomeHeader from "../components/pages/home/home-header";
-import HomePosts from "../components/pages/home/home-posts";
+import HomeHeader from "../components/pages-sections/home/home-header";
+import HomePosts from "../components/pages-sections/home/home-posts";
 
 const Container = styled.div`
   height: 100vh;

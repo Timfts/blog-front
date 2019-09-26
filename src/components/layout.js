@@ -5,15 +5,15 @@ import styled from "styled-components";
 import { GlobalStyle, media } from "@styles";
 import Header from "./layout/header";
 import SocialBar from "./layout/social";
+import Footer from "./layout/footer";
 import { debounce } from "../helpers";
 
-
 const ViewContainer = styled.div`
-  height:${ props => props.scrolled ? '85vh ' : '80vh'};
+  height:${props => (props.scrolled ? "85vh " : "80vh")};
   overflow-y:scroll;
   overflow-x:hidden;
   transition:all .4s;
-  margin:${ props => props.scrolled ? '15vh ' : '20vh'} 0 0 5.5rem;
+  margin:${props => (props.scrolled ? "15vh " : "20vh")} 0 0 5.5rem;
   ${media.desk`
     margin:200px 0 0 5.5rem;
   `}
@@ -37,22 +37,17 @@ const layoutQuery = graphql`
 `;
 
 const Layout = ({ children }) => {
-
   const [scrolled, setscrolled] = useState(false);
 
-  useEffect(() => {
-    
-  });
+  useEffect(() => {});
 
-  function scrollHandler(e){
-    /* console.log(e.target.scrollTop); */
-    if(e.target.scrollTop > 250){
+  function scrollHandler(e) {
+    if (e.target.scrollTop > 250) {
       setscrolled(true);
-    }else {
+    } else {
       setscrolled(false);
     }
   }
-
 
   return (
     <StaticQuery
@@ -60,15 +55,14 @@ const Layout = ({ children }) => {
       render={data => (
         <>
           <GlobalStyle />
-          <Header siteTitle={data.site.siteMetadata.title} scrolled={scrolled} />
+          <Header
+            siteTitle={data.site.siteMetadata.title}
+            scrolled={scrolled}
+          />
           <SocialBar />
           <ViewContainer onScroll={debounce(scrollHandler)} scrolled={scrolled}>
             <main>{children}</main>
-            <footer>
-              © {new Date().getFullYear()}, Built with
-              {` `}
-              <a href="https://www.gatsbyjs.org">Gatsby</a>
-            </footer>
+            <Footer />
           </ViewContainer>
         </>
       )}
