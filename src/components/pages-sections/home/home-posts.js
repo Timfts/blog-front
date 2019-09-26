@@ -10,6 +10,7 @@ const HomePostsSection = styled.section`
   margin-top: -10rem;
   padding: 0 5.5rem;
   position: relative;
+  margin-bottom:3rem;
 
   ${media.phone`
     margin-top:-5rem;
@@ -83,6 +84,7 @@ const HomePosts = props => (
               title
               excerpt
               feature_image
+              html
               authors {
                 name
                 profile_image
@@ -96,6 +98,7 @@ const HomePosts = props => (
             node {
               title
               excerpt
+              html
               feature_image
               authors {
                 name

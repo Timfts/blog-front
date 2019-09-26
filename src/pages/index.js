@@ -8,9 +8,7 @@ import SEO from "../components/seo";
 import HomeHeader from "../components/pages-sections/home/home-header";
 import HomePosts from "../components/pages-sections/home/home-posts";
 
-const Container = styled.div`
-  height: 100vh;
-`;
+
 
 const IndexPage = () => {
   return (
@@ -18,7 +16,6 @@ const IndexPage = () => {
       <SEO title="Home" />
       <HomeHeader />
       <HomePosts />
-      <Container />
     </Layout>
   );
 };

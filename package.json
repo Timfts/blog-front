@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@tryghost/helpers": "^1.1.11",
+    "@tryghost/helpers-gatsby": "^1.0.14",
     "babel-plugin-styled-components": "^1.10.1",
     "gatsby": "^2.9.2",
     "gatsby-cli": "^2.7.44",

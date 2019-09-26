@@ -1,4 +1,3 @@
-
 export function debounce(func, wait = 15, immediate = true) {
   let timeout;
   return function() {
@@ -17,17 +16,21 @@ export function debounce(func, wait = 15, immediate = true) {
   };
 }
 
-export function getScreenBreakpoint(){
-    const screenWidth = window.innerWidth;
-    if (screenWidth >= 1800){
-      return 'big-desk';
-    } else if (screenWidth < 1800 && screenWidth >= 1200) {
-      return 'desk';
-    } else if (screenWidth < 1200 && screenWidth >= 900) {
-      return 'tab-land';
-    } else if ( screenWidth < 900 && screenWidth >= 600) {
-      return 'tab-port';
-    } else if ( screenWidth < 600 ) {
-      return 'phone';
-    }
+/**
+ * function that reads the innerWidth of the browser
+ * @returns {string} - string that represents a group of devices
+ */
+export function getScreenBreakpoint() {
+  const screenWidth = window.innerWidth;
+  if (screenWidth >= 1800) {
+    return "big-desk";
+  } else if (screenWidth < 1800 && screenWidth >= 1200) {
+    return "desk";
+  } else if (screenWidth < 1200 && screenWidth >= 900) {
+    return "tab-land";
+  } else if (screenWidth < 900 && screenWidth >= 600) {
+    return "tab-port";
+  } else if (screenWidth < 600) {
+    return "phone";
   }
+}
