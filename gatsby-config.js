@@ -1,23 +1,20 @@
-let ghostConfig
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 
-try {
-  ghostConfig = require(`./.ghost`)
-} catch (e) {
-  ghostConfig = {
-    production: {
-      apiUrl: "http://localhost:2368",
-      contentApiKey: "8bd4f045a88345030c92ddc741",
-    },
-  }
-} finally {
-  const { apiUrl, contentApiKey } = process.env.NODE_ENV === `development` ? ghostConfig.development : ghostConfig.production
-
-  if (!apiUrl || !contentApiKey || contentApiKey.match(/<key>/)) {
-    throw new Error(`GHOST_API_URL and GHOST_CONTENT_API_KEY are required to build. Check the README.`) // eslint-disable-line
-  }
-}
+let ghostConfig;
 
 
+ghostConfig = {
+  production: {
+    apiUrl: process.env.GATSBY_API_URL,
+    contentApiKey: process.env.API_KEY,
+  },
+  development: {
+    apiUrl: process.env.GATSBY_API_URL,
+    contentApiKey: process.env.API_KEY,
+  },
+};
 
 module.exports = {
   siteMetadata: {
@@ -60,4 +57,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};

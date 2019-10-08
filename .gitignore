@@ -1,4 +1,6 @@
 .ghost.json
+.env.development
+.env.production
 
 # Logs
 logs
