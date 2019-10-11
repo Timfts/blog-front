@@ -50,7 +50,9 @@ const GridItemContainer = styled.div`
   `}
 `;
 
-const HomePostsBef = ({ posts, firstPost}) => {
+const HomePostsBef = ({ posts }) => {
+  const firstPost = posts[0].node;
+  const cardPosts = posts.slice(1, posts.length);
 
   console.log( firstPost);
   return (
@@ -58,7 +60,7 @@ const HomePostsBef = ({ posts, firstPost}) => {
       <MainArticleCard post={firstPost} />
       <PostsCardGrid>
         {
-          posts.map(post => (
+          cardPosts.map(post => (
             <GridItemContainer>
               <ArticleCard post={post.node} />
             </GridItemContainer>
@@ -70,30 +72,14 @@ const HomePostsBef = ({ posts, firstPost}) => {
 };
 
 HomePostsBef.propTypes = {
-  posts: PropTypes.array.isRequired,
-  firstPost: PropTypes.object.isRequired
+  posts: PropTypes.array.isRequired
 };
 
 const HomePosts = props => (
   <StaticQuery
     query={graphql`
       query PostQuery {
-        firstPost: allGhostPost(limit: 1) {
-          edges {
-            node {
-              title
-              excerpt
-              feature_image
-              html
-              authors {
-                name
-                profile_image
-              }
-              published_at(fromNow: true)
-            }
-          }
-        }
-        cardPosts: allGhostPost(limit: 12, skip: 1) {
+        cardPosts: allGhostPost(limit: 13, sort: {order: DESC, fields: [published_at]}) {
           edges {
             node {
               title
@@ -111,7 +97,7 @@ const HomePosts = props => (
         }
       }
     `}
-    render={data => <HomePostsBef posts={data.cardPosts.edges} firstPost={data.firstPost.edges[0].node} />}
+    render={data => <HomePostsBef posts={data.cardPosts.edges} />}
   />
 );
 
