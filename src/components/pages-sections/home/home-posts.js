@@ -31,23 +31,30 @@ const PostsCardGrid = styled.section`
   `}
 `;
 
-const GridItemContainer = styled.div`
-  flex: 0 0 calc(25% - 20px);
+const GridCell = styled.div`
+ /*  flex: 0 0 calc(25% - 20px); */
+  height: 450px;
   margin: 10px;
+  flex-basis: 1;
+  width: calc(25% - 20px);
+  height:23vw;
 
   ${media.desk`
     flex:0 0 calc(33.33% - 20px);
+    height: 28vw;
   `}
   ${media.tabLand`
     flex:0 0 calc(33.33% - 20px);
+    height:27vw;
   `}
   ${media.tabPort`
     flex:0 0 calc(50% - 20px);
+    height: 43vw;
   `}
   ${media.phone`
-    width:40rem;
-    height:45rem;
-  `}
+    width:80vw;
+    height:80vw;
+  `} 
 `;
 
 const HomePostsBef = ({ posts }) => {
@@ -61,9 +68,9 @@ const HomePostsBef = ({ posts }) => {
       <PostsCardGrid>
         {
           cardPosts.map(post => (
-            <GridItemContainer>
+            <GridCell>
               <ArticleCard post={post.node} />
-            </GridItemContainer>
+            </GridCell>
           ))
         }
       </PostsCardGrid>

@@ -65,6 +65,10 @@ export const PostTitle = styled.h1`
   font-family: "Permanent Marker", cursive;
   text-align: center;
   margin-top: 1rem;
+
+  ${media.desk`
+    font-size:1.6rem;
+  `}
 `;
 
 export const PostInfo = styled.div`
@@ -81,7 +85,7 @@ export const PostInfo = styled.div`
   }
 
   & p {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     line-height: 1.5;
     color: ${color.greySix};
   }
