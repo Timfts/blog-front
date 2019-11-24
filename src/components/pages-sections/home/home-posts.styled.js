@@ -28,7 +28,6 @@ const HomePostsStyled = {
   `,
 
   gridCell: styled.div`
-  /*  flex: 0 0 calc(25% - 20px); */
    height: 450px;
    margin: 10px;
    flex-basis: 1;

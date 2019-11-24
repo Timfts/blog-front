@@ -1,30 +1,12 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import { GlobalStyle } from "@styles";
 import { StaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
-import { GlobalStyle, media } from "@styles";
 import Header from "./layout/header";
 import SocialBar from "./layout/social-bar";
 import Footer from "./layout/footer";
 import { debounce } from "../helpers";
-
-const ViewContainer = styled.div`
-  height:${props => (props.scrolled ? "85vh " : "80vh")};
-  overflow-y:scroll;
-  overflow-x:hidden;
-  transition:all .4s;
-  margin:${props => (props.scrolled ? "15vh " : "20vh")} 0 0 5.5rem;
-  ${media.desk`
-    margin:200px 0 0 5.5rem;
-  `}
-  ${media.tabLand`
-    margin:200px 0 0 5.5rem;
-  `}
-  ${media.tabPort`
-    margin:20vh 0;
-  `}
-
-`;
+import LayoutStyled from "./layout.styled";
 
 const layoutQuery = graphql`
   query SiteTitleQuery {
@@ -60,10 +42,10 @@ const Layout = ({ children }) => {
             scrolled={scrolled}
           />
           <SocialBar />
-          <ViewContainer onScroll={debounce(scrollHandler)} scrolled={scrolled}>
+          <LayoutStyled.container onScroll={debounce(scrollHandler)} scrolled={scrolled}>
             <main>{children}</main>
             <Footer />
-          </ViewContainer>
+          </LayoutStyled.container>
         </>
       )}
     />
