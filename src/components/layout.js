@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import { GlobalStyle, media } from "@styles";
 import Header from "./layout/header";
-import SocialBar from "./layout/social";
+import SocialBar from "./layout/social-bar";
 import Footer from "./layout/footer";
 import { debounce } from "../helpers";
 

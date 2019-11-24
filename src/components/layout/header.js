@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-  HeaderContainer,
-  FakeTitle,
-  BrandContainer,
-  NavContainer,
-  CollapseNav,
-} from "./header.styled";
+import HeaderStyled from './header.styled';
 import { PanelBtnWhite } from "../shared/button";
 import Proptypes from 'prop-types';
 
@@ -17,18 +11,18 @@ const Header = ({ scrolled }) => {
   }
 
   return (
-    <HeaderContainer scrolled={scrolled}>
-      <BrandContainer scrolled={scrolled}>
-        <FakeTitle scrolled={scrolled}>Archypost</FakeTitle>
-      </BrandContainer>
-      <NavContainer isMobileOpen={isMobileOpen}>
+    <HeaderStyled.root scrolled={scrolled}>
+      <HeaderStyled.brandContainer scrolled={scrolled}>
+        <HeaderStyled.title scrolled={scrolled}>Archypost</HeaderStyled.title>
+      </HeaderStyled.brandContainer>
+      <HeaderStyled.navContainer isMobileOpen={isMobileOpen}>
         <PanelBtnWhite buttonLabel="home" isActive={true} />
         <PanelBtnWhite buttonLabel="timeline" isActive={false} />
         <PanelBtnWhite buttonLabel="posts" isActive={false} />
         <PanelBtnWhite buttonLabel="about" isActive={false} />
-      </NavContainer>
-      <CollapseNav onClick={collapseMobileMenu}>collapsar</CollapseNav>
-    </HeaderContainer>
+      </HeaderStyled.navContainer>
+      <HeaderStyled.collapseNav onClick={collapseMobileMenu}>collapsar</HeaderStyled.collapseNav>
+    </HeaderStyled.root>
   );
 };
 
