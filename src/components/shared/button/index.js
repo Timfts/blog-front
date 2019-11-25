@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import ButtonStyled from "./button.styled";
 
 export const PanelBtnWhite = ({ buttonLabel, isActive }) => (
-  <ButtonStyled.root isActive={isActive} href="#">
+  <ButtonStyled.Root isActive={isActive} href="#">
     {buttonLabel}
-  </ButtonStyled.root>
+  </ButtonStyled.Root>
 );
 
 PanelBtnWhite.propTypes = {

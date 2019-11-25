@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { color, box, mixins, media } from "@styles";
 
 const HeaderStyled = {
-  root: styled.nav`
+  Root: styled.nav`
     background-color: ${color.greyOne};
     width: 100%;
     transition:all .4s;
@@ -25,7 +25,7 @@ const HeaderStyled = {
       `}
   `,
 
-  title: styled.h1`
+  Title: styled.h1`
     color: ${color.creamThree};
     font-size: 3rem;
     letter-spacing: 1.5px;
@@ -37,7 +37,7 @@ const HeaderStyled = {
     `}
   `,
 
-  brandContainer: styled.div`
+  BrandContainer: styled.div`
     position: relative;
     transition: all 0.6s ease;
     ${media.desk`
@@ -49,7 +49,7 @@ const HeaderStyled = {
   `}
   `,
 
-  navContainer: styled.div`
+  NavContainer: styled.div`
     ${media.tabPort`
         display:flex;
         flex-wrap:wrap;
@@ -72,7 +72,7 @@ const HeaderStyled = {
     `}
   `,
 
-  collapseNav: styled.button`
+  CollapseNav: styled.button`
     background-color: red;
     display: none;
     ${media.tabPort`

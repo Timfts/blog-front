@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { media } from "@styles";
 
-const LayoutStyled = {
-  container: styled.div`
+const layoutStyled = {
+  Container: styled.div`
     height:${props => (props.scrolled ? "85vh " : "80vh")};
     overflow-y:scroll;
     overflow-x:hidden;
@@ -23,4 +23,4 @@ const LayoutStyled = {
 
 };
 
-export default LayoutStyled;
+export default layoutStyled;

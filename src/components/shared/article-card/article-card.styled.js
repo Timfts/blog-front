@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { color, media, box } from "@styles";
 
 const ArticleCardStyled = {
-  root: styled.div.attrs({
+  Root: styled.div.attrs({
     title: props => props.title,
   })`
     width: 100%;
@@ -13,7 +13,7 @@ const ArticleCardStyled = {
     cursor: pointer;
   `,
 
-  cardSide: styled.div`
+  CardSide: styled.div`
     padding: 2rem;
     background-color: ${color.white};
     width: 100%;
@@ -46,7 +46,7 @@ const ArticleCardStyled = {
       `}
   `,
 
-  cardImage: styled.div`
+  CardImage: styled.div`
     height: 75%;
     background-color: grey;
     display: flex;
@@ -60,7 +60,7 @@ const ArticleCardStyled = {
     }
   `,
 
-  postTitle: styled.h1`
+  PostTitle: styled.h1`
     font-family: "Permanent Marker", cursive;
     text-align: center;
     margin-top: 1rem;
@@ -90,14 +90,14 @@ const ArticleCardStyled = {
     }
   `,
 
-  postMeta: styled.div`
+  PostMeta: styled.div`
     display: flex;
     justify-content: space-between;
     color: ${color.greySix};
     font-size: 1.5rem;
   `,
 
-  author: styled.div`
+  Author: styled.div`
     display: flex;
     align-items: center;
 
@@ -107,7 +107,7 @@ const ArticleCardStyled = {
     }
   `,
 
-  authorImage: styled.div`
+  AuthorImage: styled.div`
     width: 3rem;
     height: 3rem;
     overflow: hidden;
@@ -122,7 +122,7 @@ const ArticleCardStyled = {
     }
   `,
 
-  timeToRead: styled.div`
+  TimeToRead: styled.div`
     display: flex;
     align-items: center;
     svg {

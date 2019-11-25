@@ -9,6 +9,7 @@
 
 const path = require('path');
 
+
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
 
   actions.setWebpackConfig({
@@ -21,6 +22,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
         '@images': path.resolve(__dirname, 'src/images'),
         '@pages': path.resolve(__dirname, 'src/pages'),
         '@styles': path.resolve(__dirname, 'src/styles'),
+        '@helpers': path.resolve(__dirname, 'src/helpers')
         //'@utils': path.resolve(__dirname, 'src/utils'),
       },
     },
@@ -112,3 +114,5 @@ exports.createPages = async ({ graphql, actions }) => {
     })
 })
 }
+
+

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import ArticleCardStyled from "./article-card.styled";
 import { navigate } from "gatsby";
 import ProTypes from "prop-types";
-import ArticleCardStyled from "./article-card.styled";
-import { getScreenBreakpoint } from "../../helpers";
+import { getScreenBreakpoint } from "@helpers";
 import { readingTime as readingTimeHelper } from "@tryghost/helpers";
 
 const ArticleCard = ({ post }) => {
@@ -25,39 +25,39 @@ const ArticleCard = ({ post }) => {
   }
 
   return (
-    <ArticleCardStyled.root title={post.title}>
-      <ArticleCardStyled.cardSide
+    <ArticleCardStyled.Root title={post.title}>
+      <ArticleCardStyled.CardSide
         side="front"
         onClick={rotateCard}
         rotated={rotated}
-        trigger={ArticleCardStyled.root}
+        trigger={ArticleCardStyled.Root}
       >
-        <ArticleCardStyled.cardImage>
+        <ArticleCardStyled.CardImage>
           <img src={post.feature_image} />
-        </ArticleCardStyled.cardImage>
-        <ArticleCardStyled.postTitle>
+        </ArticleCardStyled.CardImage>
+        <ArticleCardStyled.PostTitle>
           {trimCardTitle(post.title)}
-        </ArticleCardStyled.postTitle>
-      </ArticleCardStyled.cardSide>
-      <ArticleCardStyled.cardSide
+        </ArticleCardStyled.PostTitle>
+      </ArticleCardStyled.CardSide>
+      <ArticleCardStyled.CardSide
         side="back"
         rotated={rotated}
         onClick={openPost}
-        trigger={ArticleCardStyled.root}
+        trigger={ArticleCardStyled.Root}
       >
         <ArticleCardStyled.PostInfo>
           <div>
             <h1>{trimCardTitle(post.title)}</h1>
             <p>{post.excerpt}</p>
           </div>
-          <ArticleCardStyled.postMeta>
-            <ArticleCardStyled.author>
-              <ArticleCardStyled.authorImage>
+          <ArticleCardStyled.PostMeta>
+            <ArticleCardStyled.Author>
+              <ArticleCardStyled.AuthorImage>
                 <img src={post.authors[0].profile_image} />
-              </ArticleCardStyled.authorImage>
+              </ArticleCardStyled.AuthorImage>
               <a href="#">{post.authors[0].name}</a>
-            </ArticleCardStyled.author>
-            <ArticleCardStyled.timeToRead>
+            </ArticleCardStyled.Author>
+            <ArticleCardStyled.TimeToRead>
               <svg
                 version="1.1"
                 xmlns="http://www.w3.org/2000/svg"
@@ -68,11 +68,11 @@ const ArticleCard = ({ post }) => {
                 <path d="M9 7v-3h-2v5h4v-2zM8 0c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zM8 14c-3.313 0-6-2.687-6-6s2.687-6 6-6 6 2.687 6 6-2.687 6-6 6z"></path>
               </svg>
               <span>{readingTime}</span>
-            </ArticleCardStyled.timeToRead>
-          </ArticleCardStyled.postMeta>
+            </ArticleCardStyled.TimeToRead>
+          </ArticleCardStyled.PostMeta>
         </ArticleCardStyled.PostInfo>
-      </ArticleCardStyled.cardSide>
-    </ArticleCardStyled.root>
+      </ArticleCardStyled.CardSide>
+    </ArticleCardStyled.Root>
   );
 };
 

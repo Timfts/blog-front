@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { color } from "@styles";
 
 const ButtonStyled = {
-  root: styled.a`
+  Root: styled.a`
     text-transform: uppercase;
     font-family: Kanit;
     margin: 8px;

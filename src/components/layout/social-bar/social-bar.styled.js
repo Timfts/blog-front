@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { color, mixins, media } from "@styles";
 
 const SocialBarStyled = {
-  root: styled.div`
+  Root: styled.div`
     background-color: ${color.greyOne};
     position: fixed;
     top: 0;
@@ -18,7 +18,7 @@ const SocialBarStyled = {
     `}
   `,
 
-  icons: styled.div`
+  Icons: styled.div`
     ${mixins.flexColumn}
     justify-content:center;
     position: relative;
@@ -41,7 +41,7 @@ const SocialBarStyled = {
     }
   `,
 
-  icon: styled.a`
+  Icon: styled.a`
     display: inline-block;
     margin: 1rem 0;
 

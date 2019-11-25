@@ -5,11 +5,11 @@ import FooterStyled from "./footer.styled";
 
 const Footer = () => {
   return (
-    <FooterStyled.root>
+    <FooterStyled.Root>
       © {new Date().getFullYear()}, Made with a lot of inspiration by
       {` `}
       <a href="https://italofontes.com">Tim Fontes</a>
-    </FooterStyled.root>
+    </FooterStyled.Root>
   );
 };
 

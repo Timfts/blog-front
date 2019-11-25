@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { color, media, box } from "@styles";
 
 const MainArticleCardStyled = {
-  root: styled.a.attrs(props => ({
+  Root: styled.a.attrs(props => ({
     href: "#",
   }))`
     background-color: ${color.white};
@@ -23,7 +23,7 @@ const MainArticleCardStyled = {
             `}
   `,
 
-  imageContainer: styled.div`
+  ImageContainer: styled.div`
     flex: 1;
     height: 30rem;
     display: flex;
@@ -38,7 +38,7 @@ const MainArticleCardStyled = {
     `}
   `,
 
-  lastPostImage: styled.img.attrs({
+  LastPostImage: styled.img.attrs({
     src: props => props.source,
   })`
     flex-shrink: 0;
@@ -46,7 +46,7 @@ const MainArticleCardStyled = {
     min-height: 100%;
   `,
 
-  postContent: styled.div`
+  PostContent: styled.div`
     flex: 1;
     padding-left: 3.5rem;
 
@@ -55,7 +55,7 @@ const MainArticleCardStyled = {
     `}
   `,
 
-  postTitle: styled.h1`
+  PostTitle: styled.h1`
     text-transform: capitalize;
     font-size: 3rem;
 
@@ -64,7 +64,7 @@ const MainArticleCardStyled = {
   `}
   `,
 
-  postInfo: styled.span`
+  PostInfo: styled.span`
     color: ${color.greySix};
     display: block;
     ${media.tabPort`
@@ -72,7 +72,7 @@ const MainArticleCardStyled = {
   `}
   `,
 
-  postExcerpt: styled.p`
+  PostExcerpt: styled.p`
     color: ${color.greyFive};
     display: inline-block;
     margin-top: 3rem;

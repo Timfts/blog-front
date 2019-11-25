@@ -1,6 +1,6 @@
 import React from "react";
-import ArticleCard from "../../shared/article-card";
-import MainArticleCard from "../../shared/main-article-card";
+import ArticleCard from "@components/shared/article-card";
+import MainArticleCard from "@components/shared/main-article-card";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 
