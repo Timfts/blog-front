@@ -8,7 +8,6 @@ import SocialBar from "./social-bar";
 import Footer from "./footer";
 import { debounce } from "@helpers";
 
-
 const Layout = ({ children }) => {
   const data = layoutData();
   const [scrolled, setscrolled] = useState(false);
@@ -28,13 +27,10 @@ const Layout = ({ children }) => {
       <GlobalStyle />
       <Header siteTitle={data.site.siteMetadata.title} scrolled={scrolled} />
       <SocialBar />
-      <LayoutStyled.Container
-        onScroll={debounce(scrollHandler)}
-        scrolled={scrolled}
-      >
+      <LayoutStyled.Root onScroll={debounce(scrollHandler)} scrolled={scrolled}>
         <main>{children}</main>
         <Footer />
-      </LayoutStyled.Container>
+      </LayoutStyled.Root>
     </>
   );
 };

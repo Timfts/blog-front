@@ -1,11 +1,11 @@
 import React from "react";
-import homeHeaderData from "./home-header.data";
+import HomeHeaderData from "./home-header.data";
 import HomeHeaderStyled from "./home-header.styled";
 import Img from "gatsby-image";
 
 
 const HomeHeader = () => {
-  const data = homeHeaderData();
+  const data = HomeHeaderData();
 
   return (
     <HomeHeaderStyled.root>

@@ -26,7 +26,8 @@ const HomeHeaderStyled = {
     color:${color.creamOne};
     text-align:center;
     font-size:4rem;
-    width:75%;
+    width:100%;
+    max-width:110rem;
     
     ${media.tabPort`
         width:90%;

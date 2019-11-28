@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { media } from "@styles";
 
 const layoutStyled = {
-  Container: styled.div`
+  Root: styled.div`
     height:${props => (props.scrolled ? "85vh " : "80vh")};
     overflow-y:scroll;
     overflow-x:hidden;
@@ -17,10 +17,7 @@ const layoutStyled = {
     ${media.tabPort`
       margin:20vh 0;
     `}
-  
-  `,
-
-
+  `
 };
 
 export default layoutStyled;

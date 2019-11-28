@@ -4,7 +4,7 @@ import { media } from "@styles";
 const HomePostsStyled = {
   Root: styled.section`
     margin-top: -10rem;
-    padding: 0 5.5rem;
+    padding: 0;
     position: relative;
     margin-bottom: 3rem;
 

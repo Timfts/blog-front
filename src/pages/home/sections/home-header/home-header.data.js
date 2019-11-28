@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby";
 
-function homeHeaderData() {
+function HomeHeaderData() {
   return useStaticQuery(graphql`
     query {
       headerImage: file(relativePath: { eq: "bg.jpg" }) {
@@ -14,4 +14,4 @@ function homeHeaderData() {
   `);
 }
 
-export default homeHeaderData;
+export default HomeHeaderData;
