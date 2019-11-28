@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { media } from "@styles";
 
 const HomePostsStyled = {
-  root: styled.section`
+  Root: styled.section`
     margin-top: -10rem;
     padding: 0 5.5rem;
     position: relative;
@@ -14,7 +14,7 @@ const HomePostsStyled = {
     `}
   `,
 
-  postsCardGrid: styled.section`
+  PostsCardGrid: styled.section`
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -27,7 +27,7 @@ const HomePostsStyled = {
   `}
   `,
 
-  gridCell: styled.div`
+  GridCell: styled.div`
    height: 450px;
    margin: 10px;
    flex-basis: 1;

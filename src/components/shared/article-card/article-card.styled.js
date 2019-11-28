@@ -2,9 +2,9 @@ import styled from "styled-components";
 import { color, media, box } from "@styles";
 
 const ArticleCardStyled = {
-  Root: styled.div.attrs({
-    title: props => props.title,
-  })`
+  Root: styled.div.attrs(props => ({
+    title: props.title,
+  }))`
     width: 100%;
     height: 100%;
     min-height: 30rem;

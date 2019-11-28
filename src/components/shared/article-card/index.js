@@ -33,7 +33,7 @@ const ArticleCard = ({ post }) => {
         trigger={ArticleCardStyled.Root}
       >
         <ArticleCardStyled.CardImage>
-          <img src={post.feature_image} />
+          <img src={post.feature_image}  alt="latest post" />
         </ArticleCardStyled.CardImage>
         <ArticleCardStyled.PostTitle>
           {trimCardTitle(post.title)}
@@ -53,9 +53,9 @@ const ArticleCard = ({ post }) => {
           <ArticleCardStyled.PostMeta>
             <ArticleCardStyled.Author>
               <ArticleCardStyled.AuthorImage>
-                <img src={post.authors[0].profile_image} />
+                <img src={post.authors[0].profile_image} alt="author avatar" />
               </ArticleCardStyled.AuthorImage>
-              <a href="#">{post.authors[0].name}</a>
+              <a href="/">{post.authors[0].name}</a>
             </ArticleCardStyled.Author>
             <ArticleCardStyled.TimeToRead>
               <svg

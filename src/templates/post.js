@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from "../components/layout";
-import Proptypes from 'prop-types';
+
 
 const PostTemplate = ({data, location}) => {
     console.log(data, location);
