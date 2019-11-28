@@ -23,6 +23,16 @@ const HomePosts = () => {
           </HomePostsStyled.GridCell>
         ))}
       </HomePostsStyled.PostsCardGrid>
+      <HomePostsStyled.NewGrid>
+       {(() => {
+         const gridCells = [];
+         for(let test = 0; test <= 10; test++){
+           gridCells.push(<HomePostsStyled.NewGridCell />)
+         }
+
+         return gridCells;
+       })()}
+      </HomePostsStyled.NewGrid>
       </GeneralContainer>
     </HomePostsStyled.Root>
   );

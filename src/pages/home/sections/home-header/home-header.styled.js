@@ -27,7 +27,7 @@ const HomeHeaderStyled = {
     text-align:center;
     font-size:4rem;
     width:100%;
-    max-width:110rem;
+    max-width:115rem;
     
     ${media.tabPort`
         width:90%;

@@ -51,6 +51,28 @@ const HomePostsStyled = {
      height:80vw;
    `} 
  `,
+
+ NewGrid: styled.div`
+  width:100%;
+  display:flex;
+  flex-wrap:wrap;
+ `,
+
+ NewGridCell: styled.div`
+  height:30rem;
+  width:25%;
+  background-color:aquamarine;
+  border:2px solid black;
+
+  &:nth-child(4n){
+    background-color:red;
+  }
+
+  &:nth-child(4n + 1){
+    background-color:blue;
+  }
+
+ `
 };
 
 export default HomePostsStyled;

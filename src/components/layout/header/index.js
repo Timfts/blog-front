@@ -13,7 +13,7 @@ const Header = ({ scrolled }) => {
   return (
     <HeaderStyled.Root scrolled={scrolled}>
       <HeaderStyled.BrandContainer scrolled={scrolled}>
-        <HeaderStyled.Title scrolled={scrolled}>Archypost</HeaderStyled.Title>
+        <HeaderStyled.Title scrolled={scrolled}>Definir</HeaderStyled.Title>
       </HeaderStyled.BrandContainer>
       <HeaderStyled.NavContainer isMobileOpen={isMobileOpen}>
         <PanelBtnWhite buttonLabel="home" isActive={true} />
