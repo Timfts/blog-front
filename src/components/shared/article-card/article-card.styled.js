@@ -7,7 +7,6 @@ const ArticleCardStyled = {
   }))`
     width: 100%;
     height: 100%;
-    min-height: 30rem;
     position: relative;
     perspective: 150rem;
     cursor: pointer;
@@ -64,10 +63,14 @@ const ArticleCardStyled = {
     font-family: "Permanent Marker", cursive;
     text-align: center;
     margin-top: 1rem;
-
-    ${media.desk`
     font-size:1.6rem;
-  `}
+
+    ${media.tabLand`
+      font-size:1.8rem;
+    `}
+    ${media.phone`
+      font-size:2.5rem;
+    `}
   `,
 
   PostInfo: styled.div`

@@ -15,25 +15,15 @@ const HomePosts = () => {
   return (
     <HomePostsStyled.Root>
       <GeneralContainer>
-      <MainArticleCard post={firstPost} />
-      <HomePostsStyled.PostsCardGrid>
-        {cardPosts.map((post, index) => (
-          <HomePostsStyled.GridCell key={`home-post-grid-cell-${index}`}>
-            <ArticleCard post={post.node} />
-          </HomePostsStyled.GridCell>
-        ))}
-      </HomePostsStyled.PostsCardGrid>
-      <HomePostsStyled.NewGrid>
-       {(() => {
-         const gridCells = [];
-         for(let test = 0; test <= 10; test++){
-           gridCells.push(<HomePostsStyled.NewGridCell />)
-         }
-
-         return gridCells;
-       })()}
-      </HomePostsStyled.NewGrid>
+        <MainArticleCard post={firstPost} />
       </GeneralContainer>
+      <HomePostsStyled.NewGrid>
+        {cardPosts.map((post, index) => (
+          <HomePostsStyled.NewGridCell key={`grid-cell-${index}`}>
+            <ArticleCard post={post.node} />
+          </HomePostsStyled.NewGridCell>
+        ))}
+      </HomePostsStyled.NewGrid>
     </HomePostsStyled.Root>
   );
 };

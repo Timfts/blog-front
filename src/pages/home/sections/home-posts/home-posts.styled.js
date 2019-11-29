@@ -7,72 +7,52 @@ const HomePostsStyled = {
     padding: 0;
     position: relative;
     margin-bottom: 3rem;
+  `,
+
+
+  NewGrid: styled.div`
+    max-width:calc(115rem + 20px);
+    margin:0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top:5rem;
+
+    ${media.desk`
+      padding:0 1rem;
+    `}
 
     ${media.phone`
-      margin-top:-5rem;
-      padding:0 2rem;
+      padding:0 4rem;
     `}
   `,
 
-  PostsCardGrid: styled.section`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    margin-top: 5rem;
-
-    ${media.phone`
-    flex-direction:column;
-    flex-wrap:nowrap;
-    align-items:center;
-  `}
+  Teste: styled.div`
+    height:20px;
+    background-color:red;
   `,
 
-  GridCell: styled.div`
-   height: 450px;
-   margin: 10px;
-   flex-basis: 1;
-   width: calc(25% - 20px);
-   height:23vw;
- 
-   ${media.desk`
-     flex:0 0 calc(33.33% - 20px);
-     height: 28vw;
-   `}
-   ${media.tabLand`
-     flex:0 0 calc(33.33% - 20px);
-     height:27vw;
-   `}
-   ${media.tabPort`
-     flex:0 0 calc(50% - 20px);
-     height: 43vw;
-   `}
-   ${media.phone`
-     width:80vw;
-     height:80vw;
-   `} 
+  NewGridCell: styled.div`
+    height:21vw;
+    width:calc(25% - 20px);
+    margin:10px;
+
+
+    ${media.tabLand`
+      width:calc(33.33% - 20px);
+      height:31vw;
+      
+
+    `}
+    ${media.tabPort`
+      width:calc(50% - 20px);
+      height:50vw;
+    `}
+    ${media.phone`
+      width:100%;
+      height:80vw;
+    `}
+
  `,
-
- NewGrid: styled.div`
-  width:100%;
-  display:flex;
-  flex-wrap:wrap;
- `,
-
- NewGridCell: styled.div`
-  height:30rem;
-  width:25%;
-  background-color:aquamarine;
-  border:2px solid black;
-
-  &:nth-child(4n){
-    background-color:red;
-  }
-
-  &:nth-child(4n + 1){
-    background-color:blue;
-  }
-
- `
 };
 
 export default HomePostsStyled;
