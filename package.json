@@ -5,9 +5,9 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "@tryghost/helpers": "^1.1.11",
-    "@tryghost/helpers-gatsby": "^1.0.14",
-    "babel-plugin-styled-components": "^1.10.1",
+    "@tryghost/helpers": "^1.1.19",
+    "@tryghost/helpers-gatsby": "^1.0.22",
+    "babel-plugin-styled-components": "^1.10.6",
     "gatsby": "^2.9.2",
     "gatsby-cli": "^2.7.44",
     "gatsby-image": "^2.1.4",
@@ -20,16 +20,17 @@
     "gatsby-source-ghost": "^3.4.4",
     "gatsby-transformer-sharp": "^2.1.21",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
-    "styled-components": "^4.3.1",
+    "styled-components": "^4.4.1",
     "typeface-bitter": "0.0.71",
     "typeface-kanit": "0.0.72",
     "typeface-permanent-marker": "0.0.72"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "npm-check": "^5.9.0",
+    "prettier": "^1.19.1"
   },
   "keywords": [
     "gatsby"
@@ -39,6 +40,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
+    "upgrade-interactive": "npm-check --update",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
