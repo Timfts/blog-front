@@ -3,6 +3,7 @@ import LayoutStyled from "./layout.styled";
 import layoutData from "./layout.data";
 import PropTypes from "prop-types";
 import { GlobalStyle } from "@styles";
+import ContextProvider from "@config/context";
 import Header from "./header";
 import SocialBar from "./social-bar";
 import Footer from "./footer";
@@ -23,7 +24,7 @@ const Layout = ({ children }) => {
   }
 
   return (
-    <>
+    <ContextProvider>
       <GlobalStyle />
       <Header siteTitle={data.site.siteMetadata.title} scrolled={scrolled} />
       <SocialBar />
@@ -31,7 +32,7 @@ const Layout = ({ children }) => {
         <main>{children}</main>
         <Footer />
       </LayoutStyled.Root>
-    </>
+    </ContextProvider>
   );
 };
 
