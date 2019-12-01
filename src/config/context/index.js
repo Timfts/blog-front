@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useReducer, useEffect, useCallback, useRef } from "react";
 import { debounce } from "@helpers";
 import { AppContext, initialState, AppContextReducer } from "./appContext";
 import {
@@ -10,44 +10,31 @@ import {
 
 const ContextProvider = props => {
   const [state, dispatch] = useReducer(AppContextReducer, initialState);
+  let latestState = useRef(state);
 
   useEffect(() => {
-    initDeviceScreen();
-    const rszEvent = window.addEventListener("resize", checkDeviceScreen);
+    latestState.current = state;
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      const isMobile = window.innerWidth < 1000;
+      const { current } = latestState;
+      console.log(isMobile, current.isMobile);
+      if (isMobile && !current.isMobile) {
+        console.log("setou para mobile");
+        dispatch({ type: SET_MOBILE_SCREEN });
+      } else if (!isMobile && current.isMobile) {
+        console.log("steou para desk");
+        dispatch({ type: UNSET_MOBILE_SCREEN });
+      }
+    }
+
+    const rszEvent = window.addEventListener("resize", debounce(handleResize));
     return () => {
       window.removeEventListener("resize", rszEvent);
     };
   }, []);
-
-  function initDeviceScreen() {
-    console.log(state);
-    if (window.innerWidth < 1000) {
-      console.log("stting");
-      dispatch({ type: SET_MOBILE_SCREEN });
-    }
-    if (window.innerWidth < 600) {
-      dispatch({ type: SET_PHONE_SCREEN });
-    }
-    console.log(state);
-  }
-  function checkDeviceScreen() {
-    const isMobile = window.innerWidth < 1000;
-    const isPhone = window.innerWidth < 600;
-    /* 
-    if (isMobile && !state.isMobile) {
-      dispatch({type: SET_MOBILE_SCREEN});
-      console.log(state)
-    }else if (!isMobile && state.isMobile){
-      console.log("cenoura")
-      dispatch({type: UNSET_MOBILE_SCREEN});
-    }
-
-    if (isPhone && !state.isPhone) {
-      dispatch({type: SET_PHONE_SCREEN});
-    }else if (!isPhone && state.isPhone){
-      dispatch({type: UNSET_PHONE_SCREEN});
-    } */
-  }
 
   function checkState() {
     console.log(state);
